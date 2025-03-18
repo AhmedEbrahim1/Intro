@@ -1,0 +1,65 @@
+﻿@model List<Employee>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_AdvancedLayout";
+}
+
+<a asp-action="AddNewEmployee" asp-controller="Emolyee" class="btn btn-danger"> Add New Employee </a>
+
+
+<div id="div1" style="border:10px solid black">
+</div>
+
+<div>
+    <h1> Employees</h1>
+
+    <table class=" table table-bordered table-hover">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <partial name="_EmployeeCard" model="item" />
+                </td>
+                <td>
+                    <a href="/Emolyee/Edit/@item.Id" class="btn btn-primary">Edit </a>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-controller="Emolyee" asp-route-id="@item.Id" class="btn btn-success"> Details </a>
+                </td>
+                <td>
+                    <a href="#" onclick="getDetails(@item.Id)"> Get Details Via Ajax </a>
+                </td>
+
+            </tr>
+        }
+
+    </table>
+
+</div>
+
+@section Scripts{
+
+    <script>
+
+        function getDetails(empId) {
+
+            $.ajax({
+                //url: '/Emolyee/DetailsOfPartialView/' + empId,
+
+                url: `/Emolyee/DetailsOfPartialView/${empId}`,
+                type: 'GET',
+                //dataType: 'json' ==> response (Experct Response type Json),
+                success: function (result) {
+                    console.log('Data received:', result);
+                    alert(result);
+                    $("#div1").html(result);
+                },
+                error: function (xhr, status, error) {
+                }
+            });
+
+        }
+
+    </script>
+}
+

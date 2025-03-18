@@ -1,0 +1,45 @@
+﻿<h2>Hello </h2>
+
+<style>
+    h2 {
+        background-color: red;
+    }
+</style>
+
+@*<script>
+    alert("Hello");
+</script>
+*@
+@*block of code *@
+@{
+    int x = 10;
+    int y = 20;
+    <div> @x  </div>
+}
+
+<!-- Inline Code -->
+@x
+<br />
+@y
+@DateTime.Now.ToLongDateString()
+
+@if(x<y){
+    <h1>x less than y</h1>
+}
+
+else
+{
+    <h1>y less than x</h1>
+}
+
+@for (int i = 0; i < 10; i++)
+{
+    <li>@i</li>
+    
+}  
+
+
+
+
+
+

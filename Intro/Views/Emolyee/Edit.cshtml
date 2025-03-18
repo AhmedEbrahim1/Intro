@@ -1,0 +1,76 @@
+﻿@model Employee
+
+@{
+    Layout = "_MyLayout";
+}
+
+<h1>Edit </h1>
+
+<a href="/Emolyee/Index" class="btn btn-success"> Back  To List </a>
+
+@Html.ActionLink("Back to Index using Html Helpers","Index","Emolyee",new {id=1,name="Ali"},new {@class="btn btn-success"})
+
+@*<a asp-action="Index" asp-controller="Emolyee" class="btn btn-danger"> </a>*@
+
+<a asp-action="Index" asp-controller="Emolyee" asp-route-name="Ali" asp-route-id="5" class="btn btn-danger"> </a>
+
+
+
+
+<form method="post" action="/Emolyee/Edit/@Model?.Id">
+
+    <div class="form-group">
+        @*<label for="Nam">Name :</label>*@
+        @*<input type="password" id="Nam" name="Nam" value="@Model?.Nam" class="form-control" />*@
+
+        @*@Html.TextBox("Nam")*@
+        @*     @Html.LabelFor(e=>e.Nam)
+        @Html.EditorFor(e=>e.Nam)*@
+        @*@Html.TextBoxFor(e=>e.Nam,new {style="color:red",@class="form-control"})*@
+        @*@Html.PasswordFor(e=>e.Nam,new {style="color:red",@class="form-csontrol"})*@
+
+
+
+        <!--HTML Tags-->
+        <!--HTML Tags (inputs) + server side attributes-->
+
+        <label asp-for="Nam"> </label>
+        <input asp-for="Nam" class="form-control" />
+
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(e=>e.Age)
+        @Html.EditorFor(e=>e.Age)
+    </div>
+
+    <div class="form-group">
+        <label for="Address">Address :</label>
+        <input class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Dept_Id">Department :</label>
+        @*<input type="number" id="Dept_Id" name="Dept_Id" value="@Model?.Dept_Id" class="form-control" />*@
+
+        <select class="form-control" name="Dept_Id" id="Dept_Id">
+            @foreach (Department item in ViewBag.depts)
+            {
+                if (Model?.Dept_Id == item.Id)
+                {
+                    <option value="@item.Id" selected>@item.Name </option>
+                }
+                else
+                {
+                    <option value="@item.Id">@item.Name </option>
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group mt-4">
+        <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+
+</form>

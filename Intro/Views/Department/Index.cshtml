@@ -1,0 +1,30 @@
+﻿@model List<Department>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_AdvancedLayout";
+}
+
+<table class="table table-bordered table-hover">
+
+    @*//Add New dept*@
+    <a href="/Department/New" class="btn btn-success">Add New Department </a>
+
+
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>manager</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.ManagerName</td>
+        </tr>
+    }
+
+</table>

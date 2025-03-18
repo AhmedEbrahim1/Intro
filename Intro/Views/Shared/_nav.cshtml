@@ -1,0 +1,32 @@
+﻿<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container px-5">
+        <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item"><a class="nav-link" asp-controller="Department" asp-action="Index">Department</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Emolyee" asp-action="Index">Empolyee</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Accout" asp-action="SignOut">Sign Out</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Deprtment" asp-action="Index">welcom @User.Identity.Name </a></li>
+
+                    if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item"><a class="nav-link" asp-controller="Role" asp-action="AddRole">Add Role </a></li>
+
+                    }
+                }
+                else
+                {
+                    <li class="nav-item"><a class="nav-link" asp-controller="Accout" asp-action="Register">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Accout" asp-action="Login">Log In</a></li>
+                }
+
+
+            </ul>
+        </div>
+    </div>
+</nav>

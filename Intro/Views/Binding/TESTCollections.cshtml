@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Test Collections Binding";
+}
+
+<h2>Test Collections Binding</h2>
+
+<form method="GET" asp-action="TESTCollections">
+
+    <h4>Phone Numbers</h4>
+    <div class="form-group">
+        <label for="phone_Ahmed">Ahmed Number:</label>
+        <input type="number" id="phone_Ahmed" name="phone[Ahmed]" class="form-control"  />
+    </div>
+    <div class="form-group">
+        <label for="Mohamed">Mohamed Number:</label>
+        <input type="number" id="Mohamed" name="phone[Mohamed]" class="form-control"  />
+    </div>
+
+    <div class="form-group mt-4">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

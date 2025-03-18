@@ -1,0 +1,21 @@
+﻿@model Department
+
+<h2>Add New Departmnet</h2>
+<form method="post" action="/Department/SaveNewDepartment">
+
+    <div class="form-group">
+        <label>Name:</label>
+        <input type="text" id="Name" value="@Model?.Name" name="Name" class="form-control" />
+    </div>
+
+    <div class=" form-group">
+        <label>ManagerName:</label>
+        <input type="Text" id="ManagerName" value="@Model?.ManagerName" name="ManagerName" class="form-control" />
+    </div>
+
+    <div class=" form-group">
+        <button type="submit" class="btn btn-success">submit</button>
+    </div>
+
+
+</form>

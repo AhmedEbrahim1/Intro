@@ -1,0 +1,20 @@
+﻿@model EmployeeAdditionalData
+
+<h1>@Model.Message</h1>
+<h1>@Model.Date</h1>
+
+<select class="form-control">
+
+    @foreach (var item in Model.Branches)
+    {
+        <option>@item</option>
+    }
+</select>
+
+<select class="form-control">
+    @foreach (var item in Model.Employees)
+    {
+        <option>@item.Nam</option>
+
+    }
+</select>

@@ -1,0 +1,13 @@
+﻿@model List<Student>
+<!--Create Strong view type-->
+
+@foreach (var item in Model)
+{
+    <div style="border:2px solid red ">
+        <h1>Id: @item.Id</h1>
+        <img src="~/Images/@item.Image" style="height: 100px;" />
+    </div>
+    @*<h1>Name: @item.Name</h1>
+    <h1>Address :@item.Address</h1>
+    <h1>Level : @item.Level</h1>*@
+}

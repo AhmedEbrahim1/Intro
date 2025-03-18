@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Intro.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+    <div class="bg-danger" style="height:150px;">Header</div>
+
+    <div class="row">
+
+        <div class="col-4 bg-secondary" style="height:400px;">
+            @RenderSection("news",false)
+        </div>
+
+        <div class="col-8 bg-success" style="height:400px;">
+            @RenderBody();
+        </div>
+
+    </div>
+
+    <div class="bg-danger" style="height:150px;">
+        @RenderSection("footer",false)
+
+
+    </div>
+
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
