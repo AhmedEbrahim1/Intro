@@ -13,7 +13,7 @@ namespace Intro
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddSession();
-            builder.Services.AddControllersWithViews().AddSessionStateTempDataProvider();
+            builder.Services.AddControllersWithViews();/*.AddSessionStateTempDataProvider();*/
 
             #region Global Exception Handling
             //builder.Services.AddControllersWithViews(options => {

@@ -14,7 +14,7 @@ namespace Intro.Controllers
         public IActionResult Second()
         {
             string n = message;
-            //n = TempData["msg"]?.ToString();
+            n = TempData["msg"]?.ToString()??"";
 
             //if (TempData.ContainsKey("msg"))
             //{
@@ -22,10 +22,10 @@ namespace Intro.Controllers
             //    TempData.Keep("msg");
             //}
 
-            if (TempData.ContainsKey("msg"))
-            {
-                message = TempData.Peek("msg").ToString();
-            }
+            //if (TempData.ContainsKey("msg"))
+            //{
+            //    message = TempData.Peek("msg").ToString();
+            //}
 
             return Content("Request2");
         }

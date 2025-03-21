@@ -14,6 +14,10 @@ namespace Intro.Controllers
 
         public IActionResult GetAllStudents()
         {
+            if (TempData.ContainsKey("msg"))
+            {
+               string message = TempData.Peek("msg").ToString();
+            }
             List<Student> students = StudentList.Students;
             return View(students);
 
